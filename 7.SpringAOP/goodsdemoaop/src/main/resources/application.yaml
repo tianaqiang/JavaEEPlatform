@@ -7,13 +7,17 @@ management:
 server:
   #服务端口号
   port: 8080
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 200
 
 spring:
   datasource:
     #JDBC驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     #数据库服务器url
-    url: jdbc:mysql://172.16.2.82:3306/oomall_demo?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://mysql:3306/oomall_demo?serverTimezone=Asia/Shanghai
     #数据库服务器用户名和密码
     username: root
     password: 123456
@@ -21,11 +25,11 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       #初始化时建立物理连接的个数
-      initial-size: 3
+      initial-size: 100
       #最小连接池数量
-      min-idle: 3
+      min-idle: 100
       #最大连接池数量
-      max-active: 100
+      max-active: 200
       #获取连接时最大等待时间
       max-wait: 60000
       #配置监控页面访问登录名及密码
