@@ -61,7 +61,7 @@ public class ProductController {
                                             @RequestParam(required = false,defaultValue = "1") Integer page,
                                             @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
         PageInfo<Product> productList = null;
-        if (null != type && "manual" == type){
+        if (null != type && type.equals("manual")){
             productList = productService.findProductByName_manual(name, page, pageSize);
         } else {
             productList = productService.retrieveProductByName(name, true, page, pageSize);
