@@ -41,7 +41,7 @@ public class ProductController {
     public ReturnObject findProductById(@PathVariable("id") Long id,
                                         @RequestParam(required = false, defaultValue = "auto") String type) {
         Product product = null;
-        if (null != type && "manual" == type){
+        if (null != type && type.equals("manual")){
             product = productService.findProductById_manual(id);
         } else {
             product = productService.retrieveProductByID(id, true);
